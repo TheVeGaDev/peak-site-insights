@@ -70,33 +70,19 @@ export const Header = () => {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-gold text-gold hover:bg-gold hover:text-primary"
-              asChild
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:01116870575"
+              className="text-gold hover:text-gold-light transition-colors font-semibold text-lg"
             >
-              <a
-                href="https://wa.me/201116870575"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <Phone className="w-4 h-4" />
-                <span>واتساب</span>
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              className="bg-gold hover:bg-gold-light text-primary shadow-glow"
-              asChild
+              م. محمود مدحت
+            </a>
+            <a
+              href="tel:01559887180"
+              className="text-gold hover:text-gold-light transition-colors font-semibold text-lg"
             >
-              <a href="tel:01116870575" className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>اتصل الآن</span>
-              </a>
-            </Button>
+              م. يوسف حسن
+            </a>
           </div>
 
           {/* Mobile Menu */}
@@ -139,35 +125,18 @@ export const Header = () => {
                 </nav>
 
                 <div className="flex flex-col gap-3 pt-6 border-t border-border">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full border-gold text-gold hover:bg-gold hover:text-primary"
-                    asChild
+                  <a
+                    href="tel:01116870575"
+                    className="text-gold hover:text-gold-light transition-colors font-semibold text-center py-3 border border-gold rounded-lg"
                   >
-                    <a
-                      href="https://wa.me/201116870575"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <Phone className="w-4 h-4" />
-                      <span>واتساب</span>
-                    </a>
-                  </Button>
-                  <Button
-                    size="lg"
-                    className="w-full bg-gold hover:bg-gold-light text-primary"
-                    asChild
+                    م. محمود مدحت
+                  </a>
+                  <a
+                    href="tel:01559887180"
+                    className="text-gold hover:text-gold-light transition-colors font-semibold text-center py-3 border border-gold rounded-lg"
                   >
-                    <a
-                      href="tel:01116870575"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <Phone className="w-4 h-4" />
-                      <span>اتصل الآن</span>
-                    </a>
-                  </Button>
+                    م. يوسف حسن
+                  </a>
                 </div>
               </div>
             </SheetContent>
