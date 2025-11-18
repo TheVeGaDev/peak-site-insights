@@ -73,15 +73,17 @@ export const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <a
               href="tel:01116870575"
-              className="text-gold hover:text-gold-light transition-colors font-semibold text-lg"
+              className="group flex items-center gap-2 text-gold hover:text-gold-light transition-all duration-300 font-semibold text-lg hover:scale-110"
             >
-              م. محمود مدحت
+              <Phone className="w-5 h-5 animate-pulse group-hover:animate-bounce" />
+              <span>م. محمود مدحت</span>
             </a>
             <a
               href="tel:01559887180"
-              className="text-gold hover:text-gold-light transition-colors font-semibold text-lg"
+              className="group flex items-center gap-2 text-gold hover:text-gold-light transition-all duration-300 font-semibold text-lg hover:scale-110"
             >
-              م. يوسف حسن
+              <Phone className="w-5 h-5 animate-pulse group-hover:animate-bounce" />
+              <span>م. يوسف حسن</span>
             </a>
           </div>
 
@@ -127,15 +129,17 @@ export const Header = () => {
                 <div className="flex flex-col gap-3 pt-6 border-t border-border">
                   <a
                     href="tel:01116870575"
-                    className="text-gold hover:text-gold-light transition-colors font-semibold text-center py-3 border border-gold rounded-lg"
+                    className="flex items-center justify-center gap-2 text-gold hover:text-gold-light transition-all duration-300 font-semibold py-3 border border-gold rounded-lg hover:scale-105"
                   >
-                    م. محمود مدحت
+                    <Phone className="w-5 h-5 animate-pulse" />
+                    <span>م. محمود مدحت</span>
                   </a>
                   <a
                     href="tel:01559887180"
-                    className="text-gold hover:text-gold-light transition-colors font-semibold text-center py-3 border border-gold rounded-lg"
+                    className="flex items-center justify-center gap-2 text-gold hover:text-gold-light transition-all duration-300 font-semibold py-3 border border-gold rounded-lg hover:scale-105"
                   >
-                    م. يوسف حسن
+                    <Phone className="w-5 h-5 animate-pulse" />
+                    <span>م. يوسف حسن</span>
                   </a>
                 </div>
               </div>
