@@ -45,14 +45,14 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Crown className="w-10 h-10 text-gold animate-pulse" />
-              <div className="absolute inset-0 bg-gold/20 blur-xl rounded-full" />
+              <Crown className="w-12 h-12 text-gold-shine animate-glow-pulse" />
+              <div className="absolute inset-0 bg-gold-shine/30 blur-2xl rounded-full" />
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-primary-foreground">
+              <span className="text-3xl font-black text-foreground drop-shadow-lg">
                 النسر الذهبي
               </span>
-              <span className="text-xs text-gold">خدمات نقل الأثاث</span>
+              <span className="text-sm text-gold-shine font-bold">خدمات نقل الأثاث الفاخرة</span>
             </div>
           </div>
 
@@ -62,7 +62,7 @@ export const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="px-4 py-2 text-primary-foreground hover:text-gold transition-colors rounded-lg hover:bg-primary-light/50"
+                className="px-5 py-3 text-foreground hover:text-gold-shine transition-all duration-300 rounded-xl hover:bg-gold-1/10 font-bold text-base hover:scale-105"
               >
                 {item.name}
               </button>
@@ -73,17 +73,23 @@ export const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <a
               href="tel:01116870575"
-              className="group flex items-center gap-2 text-gold hover:text-gold-light transition-all duration-300 font-semibold text-lg hover:scale-110"
+              className="group flex items-center gap-2 text-gold-shine hover:text-gold-accent transition-all duration-300 font-black text-lg hover:scale-110 relative"
             >
-              <Phone className="w-5 h-5 animate-pulse group-hover:animate-bounce" />
-              <span>م. محمود مدحت</span>
+              <Phone className="w-6 h-6 animate-glow-pulse group-hover:animate-bounce" />
+              <span className="relative">
+                م. محمود مدحت
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-shine group-hover:w-full transition-all duration-300"></span>
+              </span>
             </a>
             <a
               href="tel:01559887180"
-              className="group flex items-center gap-2 text-gold hover:text-gold-light transition-all duration-300 font-semibold text-lg hover:scale-110"
+              className="group flex items-center gap-2 text-gold-shine hover:text-gold-accent transition-all duration-300 font-black text-lg hover:scale-110 relative"
             >
-              <Phone className="w-5 h-5 animate-pulse group-hover:animate-bounce" />
-              <span>م. يوسف حسن</span>
+              <Phone className="w-6 h-6 animate-glow-pulse group-hover:animate-bounce" />
+              <span className="relative">
+                م. يوسف حسن
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-shine group-hover:w-full transition-all duration-300"></span>
+              </span>
             </a>
           </div>
 
