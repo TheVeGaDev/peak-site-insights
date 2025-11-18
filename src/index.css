@@ -42,6 +42,10 @@ All colors MUST be HSL.
     --primary-light: 0 0% 10%;
     --gold: 45 70% 55%;
     --gold-light: 45 75% 65%;
+    --gold-1: 40 75% 58%;
+    --gold-2: 45 80% 62%;
+    --gold-3: 50 70% 60%;
+    --gold-accent: 42 85% 65%;
     --success: 45 60% 45%;
     
     /* Gradients */
