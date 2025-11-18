@@ -30,24 +30,24 @@ export const Hero = () => {
           {/* Content */}
           <div className="text-center lg:text-right space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full px-4 py-2 mb-4">
-              <Star className="w-4 h-4 text-gold fill-gold" />
-              <span className="text-gold font-semibold">الأفضل في مدينة نصر</span>
+            <div className="inline-flex items-center gap-2 bg-gold-shine/20 backdrop-blur-sm border-2 border-gold-shine/40 rounded-full px-6 py-3 mb-4 shadow-gold-intense animate-glow-pulse">
+              <Star className="w-5 h-5 text-gold-shine fill-gold-shine animate-pulse" />
+              <span className="text-gold-shine font-black text-lg">الأفضل في مدينة نصر</span>
             </div>
 
             {/* Main Heading */}
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-black text-primary-foreground leading-tight">
+            <div className="space-y-6">
+              <h1 className="text-6xl lg:text-8xl font-black text-foreground leading-tight drop-shadow-2xl">
                 نقل أثاث آمن
-                <span className="block text-gradient-gold">ومضمون 100%</span>
+                <span className="block text-gradient-gold mt-3 animate-shimmer">ومضمون 100%</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-primary-foreground/80 max-w-2xl mx-auto lg:mx-0">
+              <p className="text-2xl lg:text-3xl text-foreground/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 خدمات نقل الأثاث الأكثر موثوقية في مدينة نصر والقاهرة الكبرى
               </p>
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto lg:mx-0">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto lg:mx-0">
               {[
                 { icon: Shield, text: "ضمان الحماية" },
                 { icon: Clock, text: "خدمة 24 ساعة" },
@@ -55,10 +55,10 @@ export const Hero = () => {
               ].map((feature, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-3 border border-primary-foreground/20"
+                  className="flex items-center gap-3 bg-foreground/10 backdrop-blur-sm rounded-xl p-4 border-2 border-gold-1/30 hover:border-gold-1 shadow-soft hover:shadow-gold-intense transition-all duration-300 hover:scale-105 group"
                 >
-                  <feature.icon className="w-5 h-5 text-gold" />
-                  <span className="text-primary-foreground font-semibold">
+                  <feature.icon className="w-6 h-6 text-gold-shine group-hover:animate-pulse" />
+                  <span className="text-foreground font-bold text-lg">
                     {feature.text}
                   </span>
                 </div>
@@ -66,21 +66,21 @@ export const Hero = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
               <Button
                 size="lg"
-                className="bg-gold hover:bg-gold-light text-primary text-lg px-8 py-6 shadow-glow hover:shadow-strong transition-all duration-300"
+                className="bg-gradient-to-r from-gold-1 via-gold-shine to-gold-2 hover:from-gold-shine hover:via-gold-accent hover:to-gold-3 text-primary text-xl font-black px-10 py-8 shadow-gold-intense hover:shadow-glow transition-all duration-300 hover:scale-110 animate-glow-pulse"
                 asChild
               >
-                <a href="tel:01116870575" className="flex items-center gap-2">
-                  <Phone className="w-5 h-5" />
+                <a href="tel:01116870575" className="flex items-center gap-3">
+                  <Phone className="w-6 h-6 animate-pulse" />
                   <span>اتصل الآن 01116870575</span>
                 </a>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg px-8 py-6"
+                className="border-3 border-gold-shine bg-foreground/5 backdrop-blur-sm text-gold-shine hover:bg-gold-shine hover:text-primary text-xl font-black px-10 py-8 shadow-glow hover:shadow-gold-intense transition-all duration-300 hover:scale-105"
                 onClick={() => {
                   document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
                 }}

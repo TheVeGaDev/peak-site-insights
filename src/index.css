@@ -8,56 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 45 70% 55%;
+    /* Rich Black Background with Deep Blues */
+    --background: 220 25% 8%;
+    --foreground: 45 95% 70%;
 
-    --card: 0 0% 5%;
-    --card-foreground: 45 70% 55%;
+    --card: 220 22% 12%;
+    --card-foreground: 45 95% 75%;
 
-    --popover: 0 0% 5%;
-    --popover-foreground: 45 70% 55%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 45 95% 75%;
 
-    --primary: 0 0% 0%;
-    --primary-foreground: 45 70% 55%;
+    --primary: 220 30% 10%;
+    --primary-foreground: 45 100% 75%;
 
-    --secondary: 45 70% 55%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 45 95% 65%;
+    --secondary-foreground: 220 30% 10%;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 45 60% 45%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 45 80% 60%;
 
-    --accent: 45 80% 60%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 42 100% 70%;
+    --accent-foreground: 220 30% 10%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 40% 20%;
-    --input: 45 40% 20%;
-    --ring: 45 70% 55%;
+    --border: 45 60% 35%;
+    --input: 45 50% 30%;
+    --ring: 45 100% 65%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
     
-    /* Custom tokens */
-    --primary-light: 0 0% 10%;
-    --gold: 45 70% 55%;
-    --gold-light: 45 75% 65%;
-    --gold-1: 40 75% 58%;
-    --gold-2: 45 80% 62%;
-    --gold-3: 50 70% 60%;
-    --gold-accent: 42 85% 65%;
-    --success: 45 60% 45%;
+    /* Vibrant Gold Palette */
+    --primary-light: 220 28% 15%;
+    --gold: 45 95% 65%;
+    --gold-light: 48 100% 72%;
+    --gold-dark: 42 85% 55%;
+    --gold-1: 40 92% 62%;
+    --gold-2: 45 98% 68%;
+    --gold-3: 50 90% 65%;
+    --gold-accent: 42 100% 70%;
+    --gold-shine: 50 100% 80%;
+    --success: 142 76% 48%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 50%, hsl(var(--accent)) 100%);
+    /* Rich Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 30% 12%) 0%, hsl(220 28% 18%) 50%, hsl(42 90% 25%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 100% 55%) 0%, hsl(45 100% 65%) 50%, hsl(50 100% 75%) 100%);
+    --gradient-gold-shine: linear-gradient(135deg, hsl(42 95% 60%) 0%, hsl(45 100% 70%) 25%, hsl(48 100% 75%) 50%, hsl(50 100% 80%) 75%, hsl(45 100% 65%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(220 28% 12%) 25%, hsl(42 40% 18%) 50%, hsl(45 60% 25%) 75%, hsl(42 80% 30%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 25% 12%) 0%, hsl(220 22% 15%) 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 8px 30px hsla(var(--primary), 0.08);
-    --shadow-medium: 0 15px 40px hsla(var(--primary), 0.12);
-    --shadow-strong: 0 25px 60px hsla(var(--gold), 0.2);
-    --shadow-glow: 0 0 40px hsla(var(--gold), 0.3);
+    /* Dramatic Shadows & Glows */
+    --shadow-soft: 0 10px 40px hsla(220, 30%, 5%, 0.4);
+    --shadow-medium: 0 20px 60px hsla(220, 30%, 5%, 0.5);
+    --shadow-strong: 0 30px 80px hsla(45, 95%, 50%, 0.35);
+    --shadow-glow: 0 0 60px hsla(45, 100%, 65%, 0.5), 0 0 100px hsla(45, 100%, 60%, 0.3);
+    --shadow-gold-intense: 0 0 40px hsla(45, 100%, 60%, 0.6), 0 0 80px hsla(45, 100%, 55%, 0.4), 0 20px 60px hsla(45, 95%, 50%, 0.3);
 
     --sidebar-background: 0 0% 98%;
 
@@ -144,8 +150,16 @@ All colors MUST be HSL.
     background: var(--gradient-gold);
   }
   
+  .gradient-gold-shine {
+    background: var(--gradient-gold-shine);
+  }
+  
   .gradient-hero {
     background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
   }
   
   .shadow-soft {
@@ -164,8 +178,40 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow);
   }
   
+  .shadow-gold-intense {
+    box-shadow: var(--shadow-gold-intense);
+  }
+  
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold-shine);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  .text-gradient-gold-static {
+    @apply bg-clip-text text-transparent;
     background-image: var(--gradient-gold);
+  }
+  
+  @keyframes shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animate-shimmer {
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-2 shadow-gold-intense;
   }
 }
