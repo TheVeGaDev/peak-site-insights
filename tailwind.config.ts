@@ -52,11 +52,6 @@ export default {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
           dark: "hsl(var(--gold-dark))",
-          1: "hsl(var(--gold-1))",
-          2: "hsl(var(--gold-2))",
-          3: "hsl(var(--gold-3))",
-          accent: "hsl(var(--gold-accent))",
-          shine: "hsl(var(--gold-shine))",
         },
         success: "hsl(var(--success))",
         sidebar: {

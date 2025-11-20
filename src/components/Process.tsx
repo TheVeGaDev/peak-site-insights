@@ -29,36 +29,19 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section id="process" className="py-24 relative overflow-hidden">
-      {/* Dramatic Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-background to-primary-light">
-        <div className="absolute inset-0 opacity-20">
-          {[...Array(40)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-gold-3 rounded-full animate-pulse"
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 4}s`,
-                animationDuration: `${3 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
-      </div>
+    <section id="process" className="py-20 bg-gradient-to-b from-secondary/5 to-background relative">
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gold-3/20 backdrop-blur-sm border-2 border-gold-3/40 rounded-full px-6 py-3 mb-6 shadow-glow animate-glow-pulse">
-            <Truck className="w-5 h-5 text-gold-shine animate-pulse" />
-            <span className="text-gold-shine font-bold text-lg">كيف نعمل</span>
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-primary/50 border border-gold/20 rounded-full px-5 py-2 mb-4">
+            <Truck className="w-5 h-5 text-gold" />
+            <span className="text-gold font-bold">كيف نعمل</span>
           </div>
-          <h2 className="text-5xl lg:text-7xl font-black mb-6 text-foreground">
+          <h2 className="text-4xl lg:text-6xl font-black mb-4 text-foreground">
             خطوات بسيطة
-            <span className="text-gradient-gold block mt-2 animate-shimmer"> لنقل أثاثك بأمان</span>
+            <span className="text-gradient-gold block mt-2">لنقل أثاثك بأمان</span>
           </h2>
-          <p className="text-2xl text-foreground/80 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
             عملية سهلة وواضحة من البداية حتى النهاية
           </p>
         </div>
