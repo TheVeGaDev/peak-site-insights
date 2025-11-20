@@ -75,17 +75,24 @@ const whyUs = [
 export const Services = () => {
   return (
     <>
-      <section id="services" className="py-20 bg-gradient-to-b from-background to-secondary/5 relative">
+      <section id="services" className="py-20 bg-gradient-to-b from-background via-primary/10 to-background relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-neon-purple/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-neon-cyan/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
 
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-primary/50 border border-gold/20 rounded-full px-5 py-2 mb-4">
-              <Package className="w-5 h-5 text-gold" />
-              <span className="text-gold font-bold">خدماتنا المميزة</span>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-neon-purple/20 to-neon-cyan/20 backdrop-blur-sm border-2 border-neon-cyan/40 rounded-full px-6 py-3 mb-6 shadow-lg">
+              <Package className="w-5 h-5 text-neon-cyan animate-pulse" />
+              <span className="text-neon-cyan font-bold text-lg">خدماتنا المميزة</span>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-black mb-4">
-              نقدم أفضل خدمات
-              <span className="text-gradient-gold block mt-2">نقل الأثاث في مصر</span>
+            <h2 className="text-5xl lg:text-7xl font-black mb-6">
+              <span className="text-foreground">نقدم أفضل خدمات</span>
+              <span className="block bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink bg-clip-text text-transparent mt-3 drop-shadow-[0_0_30px_rgba(0,255,255,0.3)]">
+                نقل الأثاث في مصر
+              </span>
             </h2>
             <p className="text-2xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
               خدمات متكاملة ومتخصصة تلبي جميع احتياجاتك في نقل وتخزين الأثاث

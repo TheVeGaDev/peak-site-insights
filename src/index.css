@@ -8,43 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Clean Dark Background */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    /* Modern Gradient Background - Deep Purple to Blue */
+    --background: 250 50% 8%;
+    --foreground: 210 100% 98%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 248 45% 12%;
+    --card-foreground: 210 95% 96%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 248 45% 12%;
+    --popover-foreground: 210 95% 96%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 260 85% 45%;
+    --primary-foreground: 210 100% 98%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 280 65% 35%;
+    --secondary-foreground: 210 100% 98%;
 
-    --muted: 223 47% 11%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 250 40% 18%;
+    --muted-foreground: 220 15% 70%;
 
-    --accent: 216 34% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 175 60% 50%;
+    --accent-foreground: 250 50% 8%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 100% 98%;
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --ring: 216 34% 17%;
+    --border: 260 40% 25%;
+    --input: 260 40% 20%;
+    --ring: 260 85% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
     
-    /* Gold Accent */
-    --primary-light: 217 91% 70%;
-    --gold: 45 93% 58%;
-    --gold-light: 48 96% 65%;
-    --gold-dark: 42 88% 50%;
-    --success: 142 76% 36%;
+    /* Vibrant Accent Colors */
+    --primary-light: 260 85% 60%;
+    --gold: 45 100% 55%;
+    --gold-light: 48 100% 65%;
+    --gold-dark: 42 95% 45%;
+    --success: 142 76% 45%;
+    
+    /* Neon Colors */
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 280 100% 65%;
+    --neon-pink: 330 100% 65%;
+    --neon-green: 142 100% 55%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(260 85% 35%) 0%, hsl(240 80% 45%) 50%, hsl(220 75% 55%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(175 60% 40%) 0%, hsl(180 70% 50%) 50%, hsl(185 80% 60%) 100%);
+    --gradient-neon: linear-gradient(135deg, hsl(280 100% 65%) 0%, hsl(330 100% 65%) 50%, hsl(180 100% 50%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(248 45% 12%) 0%, hsl(258 40% 15%) 100%);
 
     --sidebar-background: 0 0% 98%;
 
