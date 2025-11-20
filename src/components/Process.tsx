@@ -29,19 +29,26 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section id="process" className="py-20 bg-gradient-to-b from-secondary/5 to-background relative">
+    <section id="process" className="py-20 bg-gradient-to-b from-background via-secondary/10 to-background relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/4 right-10 w-80 h-80 bg-neon-pink/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 left-10 w-72 h-72 bg-neon-green/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+      </div>
 
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-primary/50 border border-gold/20 rounded-full px-5 py-2 mb-4">
-            <Truck className="w-5 h-5 text-gold" />
-            <span className="text-gold font-bold">كيف نعمل</span>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-neon-purple/20 to-neon-pink/20 backdrop-blur-sm border-2 border-neon-pink/40 rounded-full px-6 py-3 mb-6 shadow-lg">
+            <Truck className="w-5 h-5 text-neon-pink animate-pulse" />
+            <span className="text-neon-pink font-bold text-lg">كيف نعمل</span>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-black mb-4 text-foreground">
-            خطوات بسيطة
-            <span className="text-gradient-gold block mt-2">لنقل أثاثك بأمان</span>
+          <h2 className="text-5xl lg:text-7xl font-black mb-6 text-foreground">
+            <span className="text-foreground">خطوات بسيطة</span>
+            <span className="block bg-gradient-to-r from-neon-pink via-neon-purple to-neon-cyan bg-clip-text text-transparent mt-3 drop-shadow-[0_0_30px_rgba(255,0,255,0.3)]">
+              لنقل أثاثك بأمان
+            </span>
           </h2>
-          <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground/80 max-w-2xl mx-auto font-semibold">
             عملية سهلة وواضحة من البداية حتى النهاية
           </p>
         </div>

@@ -6,6 +6,7 @@ import { Ratings } from "@/components/Ratings";
 import { RatingForm } from "@/components/RatingForm";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { FloatingActions } from "@/components/FloatingActions";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <FloatingActions />
     </div>
   );
 };

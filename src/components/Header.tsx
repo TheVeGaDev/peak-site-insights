@@ -42,11 +42,14 @@ export const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-2">
-            <Crown className="w-10 h-10 text-gold" />
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <Crown className="w-12 h-12 text-neon-cyan drop-shadow-[0_0_10px_rgba(0,255,255,0.8)]" />
+              <div className="absolute inset-0 bg-neon-cyan/30 blur-xl rounded-full animate-pulse" />
+            </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-black text-foreground">النسر الذهبي</span>
-              <span className="text-xs text-gold font-semibold">نقل الأثاث</span>
+              <span className="text-3xl font-black text-foreground drop-shadow-lg">النسر الذهبي</span>
+              <span className="text-sm text-neon-cyan font-bold">نقل أثاث احترافي</span>
             </div>
           </div>
 
@@ -66,17 +69,23 @@ export const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <a
               href="tel:01116870575"
-              className="flex items-center gap-2 text-gold hover:text-gold-light transition-all font-bold"
+              className="group flex items-center gap-2 text-neon-cyan hover:text-neon-purple transition-all duration-300 font-bold text-lg relative"
             >
-              <Phone className="w-5 h-5" />
-              <span>م. محمود مدحت</span>
+              <Phone className="w-5 h-5 group-hover:animate-pulse" />
+              <span className="relative">
+                م. محمود
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-neon-cyan to-neon-purple group-hover:w-full transition-all duration-300" />
+              </span>
             </a>
             <a
               href="tel:01559887180"
-              className="flex items-center gap-2 text-gold hover:text-gold-light transition-all font-bold"
+              className="group flex items-center gap-2 text-neon-purple hover:text-neon-pink transition-all duration-300 font-bold text-lg relative"
             >
-              <Phone className="w-5 h-5" />
-              <span>م. يوسف حسن</span>
+              <Phone className="w-5 h-5 group-hover:animate-pulse" />
+              <span className="relative">
+                م. يوسف
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-neon-purple to-neon-pink group-hover:w-full transition-all duration-300" />
+              </span>
             </a>
           </div>
 
