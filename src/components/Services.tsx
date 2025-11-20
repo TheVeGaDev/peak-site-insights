@@ -75,35 +75,17 @@ const whyUs = [
 export const Services = () => {
   return (
     <>
-      {/* Services Section */}
-      <section id="services" className="py-24 relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary to-background">
-          <div className="absolute inset-0 opacity-30">
-            {[...Array(30)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-1 h-1 bg-gold-1 rounded-full animate-pulse"
-                style={{
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 3}s`,
-                  animationDuration: `${2 + Math.random() * 2}s`,
-                }}
-              />
-            ))}
-          </div>
-        </div>
+      <section id="services" className="py-20 bg-gradient-to-b from-background to-secondary/5 relative">
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gold-1/20 backdrop-blur-sm border-2 border-gold-1/40 rounded-full px-6 py-3 mb-6 shadow-glow animate-glow-pulse">
-              <Package className="w-5 h-5 text-gold-shine animate-pulse" />
-              <span className="text-gold-shine font-bold text-lg">خدماتنا المميزة</span>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-primary/50 border border-gold/20 rounded-full px-5 py-2 mb-4">
+              <Package className="w-5 h-5 text-gold" />
+              <span className="text-gold font-bold">خدماتنا المميزة</span>
             </div>
-            <h2 className="text-5xl lg:text-7xl font-black mb-6">
+            <h2 className="text-4xl lg:text-6xl font-black mb-4">
               نقدم أفضل خدمات
-              <span className="text-gradient-gold block mt-2 animate-shimmer"> نقل الأثاث في مصر</span>
+              <span className="text-gradient-gold block mt-2">نقل الأثاث في مصر</span>
             </h2>
             <p className="text-2xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
               خدمات متكاملة ومتخصصة تلبي جميع احتياجاتك في نقل وتخزين الأثاث
