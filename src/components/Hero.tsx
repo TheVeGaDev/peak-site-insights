@@ -1,30 +1,38 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Star, TrendingUp, Shield, Clock } from "lucide-react";
+import { ParallaxSection } from "./ParallaxSection";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const Hero = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1, triggerOnce: true });
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/20 to-secondary/30">
-        <div className="absolute inset-0 opacity-30">
-          {[...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 rounded-full animate-pulse"
-              style={{
-                background: i % 3 === 0 ? 'hsl(var(--neon-cyan))' : i % 3 === 1 ? 'hsl(var(--neon-purple))' : 'hsl(var(--gold))',
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 2}s`,
-              }}
-            />
-          ))}
+      {/* Parallax Animated Gradient Background */}
+      <ParallaxSection speed={-0.3} className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/20 to-secondary/30">
+          <div className="absolute inset-0 opacity-30">
+            {[...Array(30)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 rounded-full animate-pulse"
+                style={{
+                  background: i % 3 === 0 ? 'hsl(var(--neon-cyan))' : i % 3 === 1 ? 'hsl(var(--neon-purple))' : 'hsl(var(--gold))',
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 3}s`,
+                  animationDuration: `${2 + Math.random() * 2}s`,
+                }}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </ParallaxSection>
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+      <div className="container relative z-10 mx-auto px-4" ref={ref}>
+        <div className={`max-w-4xl mx-auto text-center space-y-8 transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        }`}>
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-neon-purple/20 to-neon-cyan/20 backdrop-blur-sm border-2 border-neon-cyan/40 rounded-full px-6 py-3 mb-4 shadow-lg hover:shadow-neon-cyan/50 transition-all">
             <Star className="w-5 h-5 text-neon-cyan fill-neon-cyan animate-pulse" />
             <span className="text-neon-cyan font-bold text-lg">الأفضل في مدينة نصر</span>

@@ -1,4 +1,5 @@
 import { PhoneCall, FileCheck, Truck, CheckCircle2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const steps = [
   {
@@ -54,42 +55,55 @@ export const Process = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <div key={index} className="relative">
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 right-0 w-full h-1 bg-gradient-to-l from-gold-3 via-gold-2 to-transparent -z-10 shadow-glow" />
-              )}
+          {steps.map((step, index) => {
+            const { ref, isVisible } = useScrollAnimation({ threshold: 0.3 });
+            return (
+              <div
+                key={index}
+                ref={ref}
+                className={`relative transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                }`}
+                style={{
+                  transitionDelay: `${index * 150}ms`,
+                }}
+              >
+                {/* Connector Line */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-16 right-0 w-full h-1 bg-gradient-to-l from-neon-pink via-neon-purple to-transparent -z-10 shadow-lg shadow-neon-purple/30" />
+                )}
 
-              <div className="text-center group">
-                {/* Number Badge */}
-                <div className="relative inline-flex mb-6">
-                  <div className="absolute inset-0 bg-gold-3/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-300" />
-                  <div className="relative bg-gradient-to-br from-gold-3 to-gold-accent rounded-full p-8 shadow-gold-intense group-hover:scale-110 transition-all duration-500">
-                    <step.icon className="w-14 h-14 text-primary" />
+                <div className="text-center group">
+                  {/* Number Badge */}
+                  <div className="relative inline-flex mb-6">
+                    <div className="absolute inset-0 bg-neon-pink/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-300 animate-pulse" />
+                    <div className="relative bg-gradient-to-br from-neon-pink to-neon-purple rounded-full p-8 shadow-2xl shadow-neon-pink/50 group-hover:scale-110 transition-all duration-500">
+                      <step.icon className="w-14 h-14 text-white" />
+                    </div>
+                    <div className="absolute -top-3 -left-3 bg-gradient-to-br from-neon-cyan to-neon-purple text-white w-12 h-12 rounded-full flex items-center justify-center font-black text-xl shadow-2xl shadow-neon-cyan/50 border-2 border-white/30">
+                      {step.number}
+                    </div>
                   </div>
-                  <div className="absolute -top-3 -left-3 bg-gradient-to-br from-foreground to-gold-shine text-primary w-12 h-12 rounded-full flex items-center justify-center font-black text-xl shadow-gold-intense border-2 border-gold-shine/50">
-                    {step.number}
-                  </div>
+
+                  <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-neon-pink transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-foreground/70 text-lg">{step.description}</p>
                 </div>
-
-                <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-gold-shine transition-colors">
-                  {step.title}
-                </h3>
-                <p className="text-foreground/70 text-lg">{step.description}</p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-20">
           <a
-            href="tel:01116870575"
-            className="inline-flex items-center gap-4 bg-gradient-to-r from-gold-2 via-gold-shine to-gold-accent hover:from-gold-shine hover:via-gold-accent hover:to-gold-2 text-primary font-black text-2xl px-12 py-6 rounded-full shadow-gold-intense hover:shadow-glow transition-all duration-300 hover:scale-110 animate-glow-pulse"
+            href="#contact"
+            className="inline-flex items-center gap-4 bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink hover:from-neon-pink hover:via-neon-purple hover:to-neon-cyan text-white font-black text-2xl px-12 py-6 rounded-full shadow-2xl hover:shadow-neon-purple/50 transition-all duration-500 hover:scale-110 group relative overflow-hidden"
           >
-            <PhoneCall className="w-8 h-8 animate-pulse" />
-            <span>ابدأ الآن - اتصل 01116870575</span>
+            <div className="absolute inset-0 bg-white/20 blur-xl group-hover:blur-2xl transition-all" />
+            <PhoneCall className="w-8 h-8 animate-pulse relative z-10" />
+            <span className="relative z-10">ابدأ الآن واحصل على عرض مجاني</span>
           </a>
         </div>
       </div>
