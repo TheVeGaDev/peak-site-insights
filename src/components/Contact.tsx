@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const contactInfo = [
   {
@@ -45,6 +46,8 @@ const serviceTypes = [
 
 export const Contact = () => {
   const { toast } = useToast();
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: formRef, isVisible: formVisible } = useScrollAnimation({ threshold: 0.2 });
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -87,7 +90,7 @@ export const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="shadow-medium">
+          <Card className="shadow-2xl border-2 border-primary/30 hover:border-neon-green/60 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm transition-all duration-500 hover:shadow-neon-green/30">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>

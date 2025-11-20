@@ -9,6 +9,7 @@ import {
   Clock,
   DollarSign
 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const services = [
   {
@@ -100,37 +101,49 @@ export const Services = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="group hover-lift border-2 border-gold-1/20 hover:border-gold-1/60 bg-gradient-card backdrop-blur-sm overflow-hidden relative"
-              >
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gold-1/5 via-transparent to-gold-2/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <CardContent className="p-8 relative z-10">
-                  <div className="mb-6">
-                    <div className="inline-flex p-5 bg-gradient-to-br from-gold-1 to-gold-2 rounded-2xl shadow-gold-intense group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className="w-10 h-10 text-primary" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-gold-shine transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-foreground/70 mb-6 leading-relaxed text-lg">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-3 text-foreground/80">
-                        <div className="w-2 h-2 bg-gold-accent rounded-full shadow-glow" />
-                        <span className="text-base">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+            {services.map((service, index) => {
+              const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+              return (
+                <div
+                  key={index}
+                  ref={ref}
+                  className={`transition-all duration-700 ${
+                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                  }`}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                  }}
+                >
+                  <Card className="group hover-lift border-2 border-primary/30 hover:border-neon-purple/60 bg-gradient-to-br from-card to-card/50 backdrop-blur-sm overflow-hidden relative h-full transition-all duration-500 hover:shadow-2xl hover:shadow-neon-purple/30">
+                    {/* Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/10 to-neon-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <CardContent className="p-8 relative z-10">
+                      <div className="mb-6">
+                        <div className="relative inline-flex p-5 bg-gradient-to-br from-neon-cyan to-neon-purple rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <div className="absolute inset-0 bg-neon-cyan/30 blur-xl rounded-2xl" />
+                          <service.icon className="w-10 h-10 text-white relative z-10" />
+                        </div>
+                      </div>
+                      <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-neon-cyan transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-foreground/70 mb-6 leading-relaxed text-lg">
+                        {service.description}
+                      </p>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, i) => (
+                          <li key={i} className="flex items-center gap-3 text-foreground/80">
+                            <div className="w-2 h-2 bg-neon-cyan rounded-full shadow-lg shadow-neon-cyan/50" />
+                            <span className="text-base">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
