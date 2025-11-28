@@ -1,110 +1,83 @@
 import { useState } from "react";
-import { Phone, MessageCircle, X } from "lucide-react";
+import { Phone, MessageCircle, User } from "lucide-react";
 import { Button } from "./ui/button";
-
-const engineers = [
-  { name: "م. محمود مدحت", phone: "01116870575" },
-  { name: "م. يوسف حسن", phone: "01559887180" },
-];
 
 export const FloatingActions = () => {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
-  const [showCall, setShowCall] = useState(false);
+  const [showPhone, setShowPhone] = useState(false);
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-4">
-      {/* WhatsApp Button Group */}
-      <div className="relative flex flex-col items-center gap-3">
-        {/* Engineer WhatsApp Buttons */}
-        <div
-          className={`flex flex-col gap-2 transition-all duration-500 ease-out ${
-            showWhatsApp
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 translate-y-8 pointer-events-none"
-          }`}
-        >
-          {engineers.map((engineer, index) => (
-            <a
-              key={index}
-              href={`https://wa.me/2${engineer.phone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-green-400/30"
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
-            >
-              <MessageCircle className="w-5 h-5" />
-              <span className="font-bold whitespace-nowrap">{engineer.name}</span>
-            </a>
-          ))}
-        </div>
-
-        {/* Main WhatsApp Toggle Button */}
+    <div className="fixed bottom-4 left-4 lg:bottom-6 lg:left-6 z-50 flex flex-col gap-3 lg:gap-4">
+      {/* WhatsApp Button */}
+      <div className="relative">
         <Button
-          onClick={() => {
-            setShowWhatsApp(!showWhatsApp);
-            setShowCall(false);
-          }}
-          className={`w-16 h-16 rounded-full shadow-2xl transition-all duration-500 ${
-            showWhatsApp
-              ? "bg-red-500 hover:bg-red-600 rotate-90"
-              : "bg-gradient-to-br from-green-400 via-green-500 to-green-600 hover:from-green-500 hover:via-green-600 hover:to-green-700"
-          } relative overflow-hidden group`}
+          onClick={() => setShowWhatsApp(!showWhatsApp)}
+          className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-neon-green to-neon-cyan hover:from-neon-cyan hover:to-neon-green shadow-2xl hover:shadow-neon-green/50 transition-all duration-300 hover:scale-110 group"
         >
-          <div className="absolute inset-0 bg-white/20 rounded-full blur-xl group-hover:blur-2xl transition-all" />
-          {showWhatsApp ? (
-            <X className="w-7 h-7 relative z-10 animate-pulse" />
-          ) : (
-            <MessageCircle className="w-7 h-7 relative z-10 animate-bounce" />
-          )}
+          <MessageCircle className="w-6 h-6 lg:w-7 lg:h-7 group-hover:rotate-12 transition-transform" />
         </Button>
+
+        {/* WhatsApp Menu */}
+        {showWhatsApp && (
+          <div className="absolute bottom-16 lg:bottom-20 left-0 bg-gradient-to-br from-card/98 to-card/95 backdrop-blur-xl border-2 border-neon-green/30 rounded-2xl p-4 shadow-2xl shadow-neon-green/20 animate-scale-in w-72 max-w-[calc(100vw-2rem)]">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-neon-green/20">
+              <MessageCircle className="w-5 h-5 text-neon-green" />
+              <span className="font-bold text-foreground">تواصل عبر واتساب</span>
+            </div>
+            <div className="space-y-2">
+              <Button
+                onClick={() => window.open("https://wa.me/201000000001", "_blank")}
+                className="w-full justify-start bg-gradient-to-r from-neon-green/10 to-transparent hover:from-neon-green/20 hover:to-neon-green/10 border border-neon-green/30 text-foreground hover:text-neon-green transition-all duration-300 h-12"
+              >
+                <User className="w-4 h-4 ml-2" />
+                م. محمود
+              </Button>
+              <Button
+                onClick={() => window.open("https://wa.me/201000000002", "_blank")}
+                className="w-full justify-start bg-gradient-to-r from-neon-cyan/10 to-transparent hover:from-neon-cyan/20 hover:to-neon-cyan/10 border border-neon-cyan/30 text-foreground hover:text-neon-cyan transition-all duration-300 h-12"
+              >
+                <User className="w-4 h-4 ml-2" />
+                م. يوسف
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Call Button Group */}
-      <div className="relative flex flex-col items-center gap-3">
-        {/* Engineer Call Buttons */}
-        <div
-          className={`flex flex-col gap-2 transition-all duration-500 ease-out ${
-            showCall
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 translate-y-8 pointer-events-none"
-          }`}
-        >
-          {engineers.map((engineer, index) => (
-            <a
-              key={index}
-              href={`tel:${engineer.phone}`}
-              className="group flex items-center gap-3 bg-gradient-to-r from-neon-cyan to-neon-purple hover:from-neon-purple hover:to-neon-pink text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-white/30"
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
-            >
-              <Phone className="w-5 h-5" />
-              <span className="font-bold whitespace-nowrap">{engineer.name}</span>
-            </a>
-          ))}
-        </div>
-
-        {/* Main Call Toggle Button */}
+      {/* Phone Button */}
+      <div className="relative">
         <Button
-          onClick={() => {
-            setShowCall(!showCall);
-            setShowWhatsApp(false);
-          }}
-          className={`w-16 h-16 rounded-full shadow-2xl transition-all duration-500 ${
-            showCall
-              ? "bg-red-500 hover:bg-red-600 rotate-90"
-              : "bg-gradient-to-br from-neon-cyan via-neon-purple to-neon-pink hover:from-neon-purple hover:via-neon-pink hover:to-neon-cyan"
-          } relative overflow-hidden group`}
+          onClick={() => setShowPhone(!showPhone)}
+          className="w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-gradient-to-br from-neon-pink to-neon-purple hover:from-neon-purple hover:to-neon-pink shadow-2xl hover:shadow-neon-pink/50 transition-all duration-300 hover:scale-110 group"
         >
-          <div className="absolute inset-0 bg-white/20 rounded-full blur-xl group-hover:blur-2xl transition-all" />
-          {showCall ? (
-            <X className="w-7 h-7 relative z-10 animate-pulse" />
-          ) : (
-            <Phone className="w-7 h-7 relative z-10 animate-pulse" />
-          )}
+          <Phone className="w-6 h-6 lg:w-7 lg:h-7 group-hover:rotate-12 transition-transform" />
         </Button>
+
+        {/* Phone Menu */}
+        {showPhone && (
+          <div className="absolute bottom-16 lg:bottom-20 left-0 bg-gradient-to-br from-card/98 to-card/95 backdrop-blur-xl border-2 border-neon-pink/30 rounded-2xl p-4 shadow-2xl shadow-neon-pink/20 animate-scale-in w-72 max-w-[calc(100vw-2rem)]">
+            <div className="flex items-center gap-2 mb-4 pb-3 border-b border-neon-pink/20">
+              <Phone className="w-5 h-5 text-neon-pink" />
+              <span className="font-bold text-foreground">اتصل بنا</span>
+            </div>
+            <div className="space-y-2">
+              <Button
+                onClick={() => window.location.href = "tel:01000000001"}
+                className="w-full justify-start bg-gradient-to-r from-neon-pink/10 to-transparent hover:from-neon-pink/20 hover:to-neon-pink/10 border border-neon-pink/30 text-foreground hover:text-neon-pink transition-all duration-300 h-12"
+              >
+                <User className="w-4 h-4 ml-2" />
+                م. محمود
+              </Button>
+              <Button
+                onClick={() => window.location.href = "tel:01000000002"}
+                className="w-full justify-start bg-gradient-to-r from-neon-purple/10 to-transparent hover:from-neon-purple/20 hover:to-neon-purple/10 border border-neon-purple/30 text-foreground hover:text-neon-purple transition-all duration-300 h-12"
+              >
+                <User className="w-4 h-4 ml-2" />
+                م. يوسف
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
