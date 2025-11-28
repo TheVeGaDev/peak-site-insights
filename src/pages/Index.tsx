@@ -3,8 +3,9 @@ import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
 import { Stats } from "@/components/Stats";
-import { Testimonials } from "@/components/Testimonials";
 import { Ratings } from "@/components/Ratings";
+import { ServiceMap } from "@/components/ServiceMap";
+import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
@@ -18,8 +19,9 @@ const Index = () => {
         <Stats />
         <Services />
         <Process />
-        <Testimonials />
         <Ratings />
+        <ServiceMap />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
